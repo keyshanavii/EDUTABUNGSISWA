@@ -2,8 +2,8 @@
     background-color: #094067;
     position: fixed;
     width: 100%;
-    top: 0;
-    z-index: 1000;
+    top: 0; /* Agar navbar di bagian atas halaman */
+    z-index: 1000; /* Agar navbar ada di atas elemen lainnya */
 }
 
 .navbar-brand {
