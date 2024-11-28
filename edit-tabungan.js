@@ -29,9 +29,9 @@ const tampilkanSiswa = () => {
     // mengakses dom
     const tblSiswa = document.getElementById('tblSiswa')
 
-    // tblSiswa.innerHTML = "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Jenis Kelamin</th> <th>No. Telepon</th> <th>Edit</th> <th>Hapus<th> </tr>";
+    // tblSiswa.innerHTML = "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>No. Telepon</th> <th>Saldo</th> <th>Edit</th> <th>Hapus<th> </tr>";
     // for (let i in daftarSiswa){
-    //     tblSiswa.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td> <td>${daftarSiswa[i].nama}</td> <td>${daftarSiswa[i].kelas}</td> <td>${daftarSiswa[i].jenKel}</td> <td>${daftarSiswa[i].noHp}</td> <td><button type="button" class="btn btn-warning" onclick = "editSiswa('${daftarSiswa[i].nis}')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${daftarSiswa[i].nis}')">Delete</button> </td> </tr>`
+    //     tblSiswa.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td> <td>${daftarSiswa[i].nama}</td> <td>${daftarSiswa[i].kelas}</td> <td>${daftarSiswa[i].noHp}</td> <td>${daftarSiswa[i].saldo}</td> <td><button type="button" class="btn btn-warning" onclick = "editSiswa('${daftarSiswa[i].nis}')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${daftarSiswa[i].nis}')">Delete</button> </td> </tr>`
     // }
 }
 tampilkanSiswa()
@@ -41,14 +41,14 @@ const tambahSiswa = () => {
     const nis = document.getElementById('nis').value
     const nama = document.getElementById('nama').value
     const kelas = document.getElementById('kelas').value
-    const jenKel = document.getElementById('jenKel').value
     const noHp = document.getElementById('noHp').value
+    const saldo = document.getElementById('saldo').value
     const siswaBaru = {
         nis: nis,
         nama: nama,
         kelas: kelas,
-        jenKel: jenKel,
         noHp: noHp,
+        saldo: saldo,
     }
 
     // jika tambah 
@@ -61,8 +61,8 @@ const tambahSiswa = () => {
     document.getElementById('nis').value=""
     document.getElementById('nama').value=""
     document.getElementById('kelas').value=""
-    document.getElementById('jenKel').value=""
-    document.getElementById('noHp').value=""
+    document.getElementById('noTelp').value=""
+    document.getElementById('saldo').value=""
 
     mode = 'tambah'
     tampilkanSiswa()
@@ -95,8 +95,8 @@ const editSiswa = (target) => {
     document.getElementById('nis').value = siswaDiedit.nis;
     document.getElementById('nama').value = siswaDiedit.nama;
     document.getElementById('kelas').value = siswaDiedit.kelas;
-    document.getElementById('jenKel').value = siswaDiedit.janKel;
-    document.getElementById('noHp').value = siswaDiedit.noTelp;
+    document.getElementById('noHp').value = siswaDiedit.noHp;
+    document.getElementById('saldo').value = siswaDiedit.saldo;
 
     console.log(target);
     console.log(indexEdit);
@@ -107,11 +107,10 @@ const editSiswa = (target) => {
 }
 
 const cancel = (target) => {
-
-    document.getElementById('nis').value="";
-    document.getElementById('nama').value="";
-    document.getElementById('kelas').value="";
-    document.getElementById('jenKel').value="";
-    document.getElementById('noHp').value="";
+    document.getElementById('nis').value=""
+    document.getElementById('nama').value=""
+    document.getElementById('kelas').value=""
+    document.getElementById('noHp').value=""
+    document.getElementById('saldo').calue=""
     mode = 'tambah'
 }
