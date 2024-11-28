@@ -111,6 +111,6 @@ const cancel = (target) => {
     document.getElementById('nama').value=""
     document.getElementById('kelas').value=""
     document.getElementById('noHp').value=""
-    document.getElementById('saldo').calue=""
+    document.getElementById('saldo').value=""
     mode = 'tambah'
 }

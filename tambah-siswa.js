@@ -36,6 +36,7 @@ const tampilkanSiswa = () => {
 }
 tampilkanSiswa()
 
+
 // CREATE
 const tambahSiswa = () => {
     const nis = document.getElementById('nis').value
@@ -50,6 +51,9 @@ const tambahSiswa = () => {
         jenKel: jenKel,
         noHp: noHp,
     }
+    
+    // nyoba
+    JSON.stringify
 
     // jika tambah 
     if (mode == 'tambah') {
