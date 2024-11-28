@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #094067;
+    position: fixed;
+    width: 100%;
+    top: 0; /* Agar navbar di bagian atas halaman */
+    z-index: 1000; /* Agar navbar ada di atas elemen lainnya */
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8eefe;
+    padding-top: 70px;
+    height: 800px;
+}
+
+.col h1 {
+    color: #094067;
+}
+
+.col-md-9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    max-width: 1000px; /* Untuk mengatur lebar card */
+    width: 100%; /* Supaya card memenuhi lebar kontainer */
+    margin: auto;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="tambah-siswa.css">
+    <title>Tambah Siswa</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="menu.png" alt="Menu" width="25" class="d-inline-block align-text-top ms-4 me-3">
+                EduTabung
+            </a>
+            <img src="Profile.png" alt="Profile" width="80" class="d-flex justify-content-end me-4">
+        </div>
+    </nav>
+    <div class="col">
+        <h1 class="judul ms-5 mb-5">Tambah Tabungan</h1>
+        <div class="col-md-9">
+            <div class="card">
+                <h5 class="card-header">Tambah Tabungan</h5>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">NIS</label>
+                        <input type="number" class="form-control" id="nis" placeholder="masukkan NIS siswa">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" placeholder="masukkan nama siswa">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kelas</label>
+                        <select class="form-select" id="kelas">
+                            <option value="">Pilih Kelas</option>
+                            <option value="X TE 1">X TE 1</option>
+                            <option value="X TE 2">X TE 2</option>
+                            <option value="X TE 3">X TE 3</option>
+                            <option value="X TE 4">X TE 4</option>
+                            <option value="X TKL 1">X TKL 1</option>
+                            <option value="X TKL 2">X TKL 2</option>
+                            <option value="X TO 1">X TO 1</option>
+                            <option value="X TO 2">X TO 2</option>
+                            <option value="X TO 3">X TO 4</option>
+                            <option value="X TO 4">X TO 5</option>
+                            <option value="X TO 5">X TO 5</option>
+                            <option value="X TM 1">X TM 1</option>
+                            <option value="X TM 2">X TM 2</option>
+                            <option value="X PPLG 1">X PPLG 1</option>
+                            <option value="X PPLG 2">X PPLG 2</option>
+                            <option value="XI TEI 1">XI TEI 1</option>
+                            <option value="XI TEI 2">XI TEI 2</option>
+                            <option value="XI TAV 1">XI TAV 1</option>
+                            <option value="XI TAV 2">XI TAV 2</option>
+                            <option value="XI TTIL 1">X TTIL 1</option>
+                            <option value="XI TTIL 2">X TTIL 2</option>
+                            <option value="XI TBSM 1">XI TBSM 1</option>
+                            <option value="XI TBSM 2">XI TBSM 2</option>
+                            <option value="XI TKRO 1">XI TKRO 1</option>
+                            <option value="XI TKRO 2">XI TKRO 3</option>
+                            <option value="XI TKRO 3">XI TKRO 2</option>
+                            <option value="XI TP 1">X TP 1</option>
+                            <option value="XI TP 2">X TP 2</option>
+                            <option value="XI RPL 1">X RPL 1</option>
+                            <option value="XI RPL 2">X RPL 2</option>
+                            <option value="XII TEI 1">XI TEI 1</option>
+                            <option value="XII TEI 2">XI TEI 2</option>
+                            <option value="XII TAV 1">XI TAV 1</option>
+                            <option value="XII TAV 2">XI TAV 2</option>
+                            <option value="XII TTIL 1">X TTIL 1</option>
+                            <option value="XII TTIL 2">X TTIL 2</option>
+                            <option value="XII TBSM 1">XI TBSM 1</option>
+                            <option value="XII TBSM 2">XI TBSM 2</option>
+                            <option value="XII TKRO 1">XI TKRO 1</option>
+                            <option value="XII TKRO 2">XI TKRO 3</option>
+                            <option value="XII TKRO 3">XI TKRO 2</option>
+                            <option value="XII TP 1">X TP 1</option>
+                            <option value="XII TP 2">X TP 2</option>
+                            <option value="XII RPL 1">X RPL 1</option>
+                            <option value="XII RPL 2">X RPL 2</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">No. Telepon</label>
+                        <input type="number" class="form-control" id="noTelp" placeholder="masukkan nomor telepon siswa">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Saldo</label>
+                        <input type="number" class="form-control" id="saldo" placeholder="masukkan saldo siswa">
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-primary" onclick="tambahSiswa()">Simpan</button>
+                        <button type="button" class="btn btn-secondary" onclick="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tambah-tabungan.js"></script>
+</body>
+</html>

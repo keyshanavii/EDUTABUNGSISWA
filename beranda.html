@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Beranda</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="beranda.css">
 </head>
 <body>
     <nav class="navbar">
@@ -17,9 +17,9 @@
             <img src="Profile.png" alt="Profile" width="80" class="d-flex justify-content-end me-4">
         </div>
     </nav>
-    <div class="dashboard">
+    <div class="beranda">
         <div class="isi text-center">
-            <h3>DASHBOARD</h3>
+            <h3>BERANDA</h3>
             <h1>EduTabung</h1>
             <img src="logo.png" alt="Logo" width="300" class="mt-3"> 
             <div class="desc"> 
@@ -28,16 +28,16 @@
         </div>
         <div class="btn-menu">
             <div class="siswa mt-4 d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="button"><img src="D Siswa.png" alt="Data Siswa" class="me-2 mb-1">Data Siswa</button>
-                <button class="btn btn-primary" type="button"><img src="T Siswa.png" alt="Tambah Siswa" class="me-2 mb-1">Tambah Siswa</button>
+                <button class="btn btn-primary" type="button" onclick="window.location.href='data-siswa.html'"><img src="D Siswa.png" alt="Data Siswa" class="me-2 mb-1">Data Siswa</button>
+                <button class="btn btn-primary" type="button" onclick="window.location.href='tambah-siswa.html'"><img src="T Siswa.png" alt="Tambah Siswa" class="me-2 mb-1">Tambah Siswa</button>
             </div> 
-            <div class="tabungan mt-2 d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="button"><img src="D Tabungan.png" alt="Data Tabungan" class="me-2 mb-1">Data Tabungan</button>
-                <button class="btn btn-primary" type="button"><img src="T Tabungan.png" alt="Tambah Tabungan" class="me-2 mb-1">Tambah Tabungan</button>
+            <div class="tabungan mt-2 mb-3 d-grid gap-2 d-md-block">
+                <button class="btn btn-primary" type="button" onclick="window.location.href='data-tabungan.html'"><img src="D Tabungan.png" alt="Data Tabungan" class="me-2 mb-1">Data Tabungan</button>
+                <button class="btn btn-primary" type="button" onclick="window.location.href='tambah-tabungan.html'"><img src="T Tabungan.png" alt="Tambah Tabungan" class="me-2 mb-1">Tambah Tabungan</button>
             </div> 
         </div>
     </div>
     
-    <script src="dashboard.js"></script>
+    <script src="beranda.js"></script>
 </body>
 </html>
