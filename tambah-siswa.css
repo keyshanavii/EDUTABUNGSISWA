@@ -6,8 +6,14 @@
     z-index: 1000; /* Agar navbar ada di atas elemen lainnya */
 }
 
-.navbar-brand {
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group h3 {
     color: white;
+    margin-top: 5px;
 }
 
 .col {
