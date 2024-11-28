@@ -4,21 +4,21 @@ const daftarSiswa = [
         nama: "Keysha Navi'azkiya",
         kelas: "XI RPL 1",
         jenKel: "Perempuan",
-        noTelp: "081234567890",
+        noHp: "081234567890",
     },
     {
         nis: "22222222",
         nama: "Aiswatun Kholifah",
         kelas: "XI RPL 1",
         jenKel: "Perempuan",
-        noTelp: "082345678901",
+        noHp: "082345678901",
     },
     {
         nis: "3333333",
         nama: "Muhammad Fakhri Bintang Pratama",
         kelas: "XI RPL 1",
         jenKel: "Laki-Laki",
-        noTelp: "083456789012",
+        noHp: "083456789012",
     },
 ]
 
@@ -29,11 +29,10 @@ const tampilkanSiswa = () => {
     // mengakses dom
     const tblSiswa = document.getElementById('tblSiswa')
 
-    tblSiswa.innerHTML = "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Jenis Kelamin</th> <th>No. Telepon</th> <th>Edit</th> <th>Hapus<th> </tr>";
-    for (let i in daftarSiswa){
-        tblSiswa.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td> <td>${daftarSiswa[i].nama}</td> <td>${daftarSiswa[i].kelas}</td> <td>${daftarSiswa[i].jenKel}</td> <td>${daftarSiswa[i].noHp}</td> <td><button type="button" class="btn btn-warning" onclick = "editSiswa('${daftarSiswa[i].nis}')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${daftarSiswa[i].nis}')">Delete</button>
-</td> </tr>`
-    }
+    // tblSiswa.innerHTML = "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Jenis Kelamin</th> <th>No. Telepon</th> <th>Edit</th> <th>Hapus<th> </tr>";
+    // for (let i in daftarSiswa){
+    //     tblSiswa.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td> <td>${daftarSiswa[i].nama}</td> <td>${daftarSiswa[i].kelas}</td> <td>${daftarSiswa[i].jenKel}</td> <td>${daftarSiswa[i].noHp}</td> <td><button type="button" class="btn btn-warning" onclick = "editSiswa('${daftarSiswa[i].nis}')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${daftarSiswa[i].nis}')">Delete</button> </td> </tr>`
+    // }
 }
 tampilkanSiswa()
 
@@ -43,13 +42,13 @@ const tambahSiswa = () => {
     const nama = document.getElementById('nama').value
     const kelas = document.getElementById('kelas').value
     const jenKel = document.getElementById('jenKel').value
-    const noTelp = document.getElementById('noTelp').value
+    const noHp = document.getElementById('noHp').value
     const siswaBaru = {
         nis: nis,
         nama: nama,
         kelas: kelas,
         jenKel: jenKel,
-        noTelp: noTelp,
+        noHp: noHp,
     }
 
     // jika tambah 
@@ -63,7 +62,7 @@ const tambahSiswa = () => {
     document.getElementById('nama').value=""
     document.getElementById('kelas').value=""
     document.getElementById('jenKel').value=""
-    document.getElementById('noTelp').value=""
+    document.getElementById('noHp').value=""
 
     mode = 'tambah'
     tampilkanSiswa()
@@ -97,7 +96,7 @@ const editSiswa = (target) => {
     document.getElementById('nama').value = siswaDiedit.nama;
     document.getElementById('kelas').value = siswaDiedit.kelas;
     document.getElementById('jenKel').value = siswaDiedit.janKel;
-    document.getElementById('noTelp').value = siswaDiedit.noTelp;
+    document.getElementById('noHp').value = siswaDiedit.noTelp;
 
     console.log(target);
     console.log(indexEdit);
@@ -108,9 +107,11 @@ const editSiswa = (target) => {
 }
 
 const cancel = (target) => {
-    document.getElementById('txtNama').value=""
-    document.getElementById('jenKel').value=""
-    document.getElementById('txtUmur').value=""
-    document.getElementById('warna').value=""
+
+    document.getElementById('nis').value="";
+    document.getElementById('nama').value="";
+    document.getElementById('kelas').value="";
+    document.getElementById('jenKel').value="";
+    document.getElementById('noHp').value="";
     mode = 'tambah'
 }
