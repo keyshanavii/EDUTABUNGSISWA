@@ -10,10 +10,19 @@
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="menu.png" alt="Menu" width="25" class="d-inline-block align-text-top ms-4 me-3">
-                EduTabung
-            </a>
+            <div class="btn-group ms-3">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Menu
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="beranda.html">Beranda</a></li>
+                    <li><a class="dropdown-item" href="data-siswa.html">Data Siswa</a></li>
+                    <li><a class="dropdown-item" href="tambah-siswa.html">Tambah Siswa</a></li>
+                    <li><a class="dropdown-item" href="data-tabungan.html">Data Tabungan</a></li>
+                    <li><a class="dropdown-item" href="tambah-tabungan.html">Tambah Tabungan</a></li>
+                </ul>
+                <h3 class="h3 ms-3">EduTabung</h3>
+            </div>
             <img src="Profile.png" alt="Profile" width="80" class="d-flex justify-content-end me-4">
         </div>
     </nav>
@@ -98,6 +107,7 @@
             </div>
         </div>
     </div>
+    <script src="./js/bootstrap.min.js"></script>
     <script src="tambah-tabungan.js"></script>
 </body>
 </html>

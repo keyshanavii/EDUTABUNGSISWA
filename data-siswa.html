@@ -13,16 +13,43 @@
     .container{
         background-color: #d8eefe;
         height: 800px;
+        padding-top: 50px;
+    }
+    .navbar {
+        background-color: #094067;
+        position: fixed;
+        width: 100%;
+        top: 0; /* Agar navbar di bagian atas halaman */
+        z-index: 1000; /* Agar navbar ada di atas elemen lainnya */
+    }
+
+    .container-fluid {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-group h3 {
+        color: white;
+        margin-top: 5px;
     }
 </style>
 <body>
     <div class="row">
-        <nav class="navbar" style="background-color: #094067;">
+        <nav class="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#" style="color: white; font-size: 18px; font-weight: bold;">
-                <img src="menu.png" alt="Menu" width="25" class="d-inline-block align-text-top ms-4 me-3">
-                EduTabung
-                </a>
+                <div class="btn-group ms-3">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Menu
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="beranda.html">Beranda</a></li>
+                        <li><a class="dropdown-item" href="data-siswa.html">Data Siswa</a></li>
+                        <li><a class="dropdown-item" href="tambah-siswa.html">Tambah Siswa</a></li>
+                        <li><a class="dropdown-item" href="data-tabungan.html">Data Tabungan</a></li>
+                        <li><a class="dropdown-item" href="tambah-tabungan.html">Tambah Tabungan</a></li>
+                    </ul>
+                    <h3 class="h3 ms-3">EduTabung</h3>
+                </div>
                 <img src="Profile.png" alt="Profile" width="80" class="d-flex justify-content-end me-4">
             </div>
         </nav>
@@ -66,6 +93,7 @@
         </div>  
         </div>  
     </div>
+    <script src="./js/bootstrap.min.js"></script>
     <script src="./dataSiswa.js"></script>
 </body>
 </html>
