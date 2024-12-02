@@ -52,9 +52,6 @@ const tambahSiswa = () => {
         noHp: noHp,
     }
     
-    // nyoba
-    JSON.stringify
-
     // jika tambah 
     if (mode == 'tambah') {
         daftarSiswa.push(siswaBaru)
