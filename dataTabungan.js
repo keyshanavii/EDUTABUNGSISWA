@@ -19,13 +19,12 @@ const tampilkanTabungan = (filter = "") => {
       }</td> <td>${daftarTabungan[i].nis}</td> <td>${
         daftarTabungan[i].nama
       }</td> <td>${daftarTabungan[i].kelas}</td> <td>${
-        daftarTabungan[i].tanggal
-      }</td> <td>${
+        daftarTabungan[i].tanggal}</td> <td>${
         daftarTabungan[i].saldo
       }</td> <td><button type="button" class="btn btn-warning" onclick = "handleEditTabungan('${
         daftarTabungan[i].id
       }')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
-        daftarTabungan[i].nis
+        daftarTabungan[i].id
       }')">Delete</button>
 </td> </tr>`;
     }
@@ -37,8 +36,8 @@ const cariIndex = (id) => {
   return index;
 };
 
-const hapusTabungan = (target) => {
-  const index = cariIndex(target);
+const hapusTabungan = (id) => {
+  const index = cariIndex(id);
   if (index !== -1) {
     daftarTabungan.splice(index, 1);
     tampilkanTabungan();
