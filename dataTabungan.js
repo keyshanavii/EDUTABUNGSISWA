@@ -1,145 +1,110 @@
-const daftarTabungan = [
-    {
-        kodeTab : '1234',
-        nis : '1111',
-        nama : 'Re Dirgantara',
-        kelas : 'XI RPL 1',
-        tanggal : '12/2/2024',
-        saldo: 'Rp500.000,00'
-    },
-    {
-        kodeTab : '2345',
-        nis : '2222',
-        nama : 'Kalypso Dirgantari',
-        kelas : 'XI RPL 1',
-        tanggal : '12/2/2024',
-        saldo: 'Rp150.000,00'
-    },
-    {
-        kodeTab : '3456',
-        nis : '3333',
-        nama : 'Kenan Aditya',
-        kelas : 'XI RPL 1',
-        tanggal : '12/2/2024',
-        saldo: 'Rp300.000,00'
-    },
-    {
-        kodeTab : '4567',
-        nis : '4444',
-        nama : 'Adinda Aletheia',
-        kelas : 'XI RPL 1',
-        tanggal : '12/2/2024',
-        saldo: 'Rp200.000,00'
-    },
-    {
-        kodeTab : '5678',
-        nis : '5555',
-        nama : 'Aurora Calista',
-        kelas : 'XI RPL 1',
-        tanggal : '12/2/2024',
-        saldo: 'Rp750.000,00'
-    },
-]
+const daftarTabungan = getData("daftarTabungan") || [];
 
-let mode = 'tambah';
-
-const tampilkanTabungan = (filter = '') => {
-    const tblTabungan = document.getElementById('tblTabungan')
-    tblTabungan.innerHTML = "<tr> <th>No</th> <th>Kode Tabungan</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Tanggal</th> <th>Saldo</th> <th>Edit</th> <th>Hapus<th> </tr>";
-    for (let i in daftarTabungan){
-        if (daftarTabungan[i].nis.includes(filter)){
-        tblTabungan.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${daftarTabungan[i].kodeTab}</td> <td>${daftarTabungan[i].nis}</td> <td>${daftarTabungan[i].nama}</td> <td>${daftarTabungan[i].kelas}</td> <td>${daftarTabungan[i].tanggal}</td> <td>${daftarTabungan[i].saldo}</td> <td><button type="button" class="btn btn-warning" onclick = "editTabungan('${daftarTabungan[i].nis}')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${daftarTabungan[i].nis}')">Delete</button>
-</td> </tr>`
-        }
-    }
+function getData(Key) {
+  return JSON.parse(localStorage.getItem(Key));
 }
 
-const tambahTabungan = () => {
-    const kodeTab = document.getElementById('kodeTab').value
-    const nis = document.getElementById('nis').value
-    const nama = document.getElementById('txtNama').value
-    const kelas = document.getElementById('kelasSiswa').value
-    const tanggal = document.getElementById('tanggal').value
-    const saldo = document.getElementById('saldo').value
-   
-    const tabunganBaru = {
-        kodeTab : kodeTab,
-        nis : nis,
-        nama : nama,
-        kelas : kelas,
-        tanggal : tanggal,
-        saldo : saldo,
-    }
-
-    if (mode == 'tambah'){
-        daftarTabungan.push(tabunganBaru)
-    } else {
-        daftarTabungan[mode] = tabunganBaru;
-    }
-
-    document.getElementById('kodeTab').value = ""
-    document.getElementById('nis').value = ""
-    document.getElementById('txtNama').value = ""
-    document.getElementById('kelasSiswa').value = ""
-    document.getElementById('tanggal').value = ""
-    document.getElementById('saldo').value = ""
-
-    mode = 'tambah';
-
-    tampilkanTabungan()
+function setData(Key, Data) {
+  return localStorage.setItem(Key, JSON.stringify(Data));
 }
 
-const cariIndex = (nis) => {
-    for (let i = 0; i < daftarTabungan.length; i++){
-        if (daftarTabungan[i].nis === nis){
-            return i;
-        }
+const tampilkanTabungan = (filter = "") => {
+  const tblTabungan = document.getElementById("tblTabungan");
+  tblTabungan.innerHTML =
+    "<tr> <th>No</th> <th>Kode Tabungan</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Tanggal</th> <th>Saldo</th> <th>Edit</th> <th>Hapus<th> </tr>";
+  for (let i in daftarTabungan) {
+    if (daftarTabungan[i].nis.includes(filter)) {
+      tblTabungan.innerHTML += `<tr> <td>${parseInt(i) + 1}</td> <td>${
+        daftarTabungan[i].kodeTab
+      }</td> <td>${daftarTabungan[i].nis}</td> <td>${
+        daftarTabungan[i].nama
+      }</td> <td>${daftarTabungan[i].kelas}</td> <td>${
+        daftarTabungan[i].tanggal
+      }</td> <td>${
+        daftarTabungan[i].saldo
+      }</td> <td><button type="button" class="btn btn-warning" onclick = "handleEditTabungan('${
+        daftarTabungan[i].id
+      }')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
+        daftarTabungan[i].nis
+      }')">Delete</button>
+</td> </tr>`;
     }
-    return -1;
-}
+  }
+};
+
+const cariIndex = (id) => {
+  const index = daftarTabungan.findIndex((item) => item.id == id);
+  return index;
+};
 
 const hapusTabungan = (target) => {
-    const index = cariIndex(target);
-    if (index !== -1){
-        daftarTabungan.splice(index, 1)
-        tampilkanTabungan()
-        console.log('Dihapus');}
-}
+  const index = cariIndex(target);
+  if (index !== -1) {
+    daftarTabungan.splice(index, 1);
+    tampilkanTabungan();
+    console.log("Dihapus");
+  }
+};
 
-const editTabungan = (target) => {
-    const indexEdit = cariIndex(target);
-    const tabunganDiedit = daftarTabungan[indexEdit];
-    document.getElementById('kodeTab').value = tabunganDiedit.kodeTab;
-    document.getElementById('nis').value = tabunganDiedit.nis;
-    document.getElementById('txtNama').value = tabunganDiedit.nama;
-    document.getElementById('kelasSiswa').value = tabunganDiedit.kelas;
-    document.getElementById('tanggal').value = tabunganDiedit.tanggal;
-    document.getElementById('saldo').value = tabunganDiedit.saldo;
+const handleEditTabungan = (id) => {
+  const EditModal = document.getElementById("editModal");
 
-    mode = indexEdit;
+  const Modal = new bootstrap.Modal(EditModal);
+  Modal.show();
 
+  const indexEdit = cariIndex(id);
+  const tabunganDiedit = daftarTabungan[indexEdit];
+  const idModal = document.getElementById("id");
+  const kodeTab = document.getElementById("kodeTab");
+  const nis = document.getElementById("nis");
+  const nama = document.getElementById("nama");
+  const kelas = document.getElementById("kelas");
+  const tanggal = document.getElementById("tanggal");
+  const saldo = document.getElementById("saldo");
+  idModal.value = tabunganDiedit.id;
+  kodeTab.value = tabunganDiedit.kodeTab;
+  nis.value = tabunganDiedit.nis;
+  nama.value = tabunganDiedit.nama;
+  kelas.value = tabunganDiedit.kelas;
+  tanggal.value = tabunganDiedit.tanggal;
+  saldo.value = tabunganDiedit.saldo;
+};
 
-    console.log(target)
-    console.log(indexEdit)
+const editTabungan = () => {
+  const EditModal = document.getElementById("editModal");
+  const Modal = bootstrap.Modal.getInstance(EditModal);
+  const id = document.getElementById("id");
+  const indexEdit = cariIndex(id.value);
+  const kodeTab = document.getElementById("kodeTab");
+  const nis = document.getElementById("nis");
+  const nama = document.getElementById("nama");
+  const kelas = document.getElementById("kelas");
+  const tanggal = document.getElementById("tanggal");
+  const saldo = document.getElementById("saldo");
+  daftarTabungan[indexEdit].kodeTab = kodeTab.value;
+  daftarTabungan[indexEdit].nis = nis.value;
+  daftarTabungan[indexEdit].nama = nama.value;
+  daftarTabungan[indexEdit].kelas = kelas.value;
+  daftarTabungan[indexEdit].tanggal = tanggal.value;
+  daftarTabungan[indexEdit].saldo = saldo.value;
 
-    console.log(daftarTabungan[indexEdit])
-    
-}
+  Modal.hide();
+  setData("daftarTabungan", daftarTabungan);
+  tampilkanTabungan();
+};
 
-const cancel = (target) => {
-    document.getElementById('kodeTab').value = ""
-    document.getElementById('nis').value = ""
-    document.getElementById('txtNama').value = ""
-    document.getElementById('kelasSiswa').value = ""
-    document.getElementById('tanggal').value = ""
-    document.getElementById('saldo').value = ""
-    mode = 'tambah'
-}
+const cancel = () => {
+  const EditModal = document.getElementById("editModal");
+  const Modal = bootstrap.Modal.getInstance(EditModal);
+  Modal.hide()
+};
 
-document.querySelector('form[role="search"]').addEventListener('submit', function (event){
+document
+  .querySelector('form[role="search"]')
+  .addEventListener("submit", function (event) {
     event.preventDefault();
-    const searchValue = this.querySelector('input[type="search"]').value
+    const searchValue = this.querySelector('input[type="search"]').value;
     tampilkanTabungan(searchValue);
-});
+  });
 
-window.onload = tampilkanTabungan();
+tampilkanTabungan();
