@@ -64,6 +64,8 @@ const tambahSiswa = () => {
     document.getElementById('tanggal').value=""
     document.getElementById('saldo').value=""
 
+    simpanSiswaKeLocalStorage();
+    
     mode = 'tambah'
     tampilkanSiswa()
 }
@@ -113,4 +115,21 @@ const cancel = (target) => {
     document.getElementById('tanggal').value=""
     document.getElementById('saldo').value=""
     mode = 'tambah'
+}
+
+const simpanSiswaKeLocalStorage = () => {
+    localStorage.setItem('daftarSiswa',  JSON.stringify(daftarSiswa));
+}
+
+const ambilSiswaDariLocalStorage = () => {
+    const data = localStorage.getItem('daftarSiswa');
+    if (data) {
+        return JSON.parse(data);
+    }
+    return [];
+} 
+
+window.onload = () => {
+    daftarSiswa.push(...ambilSiswaDariLocalStorage());
+    tampilkanSiswa();
 }

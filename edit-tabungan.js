@@ -38,16 +38,16 @@ tampilkanSiswa()
 
 // CREATE
 const tambahSiswa = () => {
-    const nis = document.getElementById('nis').value
+    const kodeTab = document.getElementById('kodeTab').value
     const nama = document.getElementById('nama').value
     const kelas = document.getElementById('kelas').value
-    const noHp = document.getElementById('noHp').value
+    const tanggal = document.getElementById('tanggal').value
     const saldo = document.getElementById('saldo').value
     const siswaBaru = {
-        nis: nis,
+        kodeTab: kodeTab,
         nama: nama,
         kelas: kelas,
-        noHp: noHp,
+        tanggal: tanggal,
         saldo: saldo,
     }
 
@@ -58,12 +58,14 @@ const tambahSiswa = () => {
         // jika edit
         daftarSiswa[mode] = siswaBaru
     }
-    document.getElementById('nis').value=""
+    document.getElementById('kodeTab').value=""
     document.getElementById('nama').value=""
     document.getElementById('kelas').value=""
-    document.getElementById('noTelp').value=""
+    document.getElementById('tanggal').value=""
     document.getElementById('saldo').value=""
 
+    simpanSiswaKeLocalStorage();
+    
     mode = 'tambah'
     tampilkanSiswa()
 }
@@ -92,10 +94,10 @@ const editSiswa = (target) => {
     const indexEdit = cariIndex(target);
     const siswaDiedit = daftarSiswa[indexEdit];
 
-    document.getElementById('nis').value = siswaDiedit.nis;
+    document.getElementById('kodeTab').value = siswaDiedit.kodeTab;
     document.getElementById('nama').value = siswaDiedit.nama;
     document.getElementById('kelas').value = siswaDiedit.kelas;
-    document.getElementById('noHp').value = siswaDiedit.noHp;
+    document.getElementById('tanggal').value = siswaDiedit.tanggal;
     document.getElementById('saldo').value = siswaDiedit.saldo;
 
     console.log(target);
@@ -107,10 +109,27 @@ const editSiswa = (target) => {
 }
 
 const cancel = (target) => {
-    document.getElementById('nis').value=""
+    document.getElementById('kodeTab').value=""
     document.getElementById('nama').value=""
     document.getElementById('kelas').value=""
-    document.getElementById('noHp').value=""
+    document.getElementById('tanggal').value=""
     document.getElementById('saldo').value=""
     mode = 'tambah'
+}
+
+const simpanSiswaKeLocalStorage = () => {
+    localStorage.setItem('daftarSiswa',  JSON.stringify(daftarSiswa));
+}
+
+const ambilSiswaDariLocalStorage = () => {
+    const data = localStorage.getItem('daftarSiswa');
+    if (data) {
+        return JSON.parse(data);
+    }
+    return [];
+} 
+
+window.onload = () => {
+    daftarSiswa.push(...ambilSiswaDariLocalStorage());
+    tampilkanSiswa();
 }
