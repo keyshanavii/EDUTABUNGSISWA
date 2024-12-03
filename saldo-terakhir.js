@@ -11,15 +11,13 @@ function setData(Key, Data) {
 const tampilkanTabungan = (filter = "") => {
   const tblTabungan = document.getElementById("tblTabungan");
   tblTabungan.innerHTML =
-    "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Nominal</th> <th>Tanggal</th> <th>Hapus<th> </tr>";
+    "<tr> <th>No</th> <th>Nama</th> <th>Saldo</th> <th>Hapus<th> </tr>";
   for (let i in daftarTabungan) {
     if (daftarTabungan[i].nis.includes(filter)) {
       tblTabungan.innerHTML += `<tr> <td>${parseInt(i) + 1}</td>
-       <td>${daftarTabungan[i].nis}</td> <td>${
-        daftarTabungan[i].nama
-      }</td> <td>${daftarTabungan[i].nominal}</td> <td>${
-        daftarTabungan[i].tanggal}</td> 
-      <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
+       <td>${daftarTabungan[i].nama}</td> <td>${
+        daftarTabungan[i].saldo
+      }</td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
         daftarTabungan[i].id
       }')">Delete</button>
 </td> </tr>`;
@@ -50,17 +48,13 @@ const handleEditTabungan = (id) => {
   const indexEdit = cariIndex(id);
   const tabunganDiedit = daftarTabungan[indexEdit];
   const idModal = document.getElementById("id");
-  const nis = document.getElementById("nis");
   const nama = document.getElementById("nama");
-  const nominal = document.getElementById("nominal");
-  const tanggal = document.getElementById("tanggal");
+  const saldo = document.getElementById("saldo");
 
   idModal.value = tabunganDiedit.id;
   kodeTab.value = tabunganDiedit.kodeTab;
-  nis.value = tabunganDiedit.nis;
   nama.value = tabunganDiedit.nama;
-  nominal.value = tabunganDiedit.nominal;
-  tanggal.value = tabunganDiedit.tanggal;
+  saldo.value = tabunganDiedit.saldo;
 };
 
 // const editTabungan = () => {
