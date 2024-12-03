@@ -23,7 +23,7 @@ const tampilkanTabungan = (filter = "") => {
         daftarTabungan[i].saldo
       }</td> <td><button type="button" class="btn btn-warning" onclick = "handleEditTabungan('${
         daftarTabungan[i].id
-      }')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
+      }')">+</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusTabungan('${
         daftarTabungan[i].id
       }')">Delete</button>
 </td> </tr>`;
@@ -48,7 +48,6 @@ const hapusTabungan = (id) => {
 
 const handleEditTabungan = (id) => {
   const EditModal = document.getElementById("editModal");
-
   const Modal = new bootstrap.Modal(EditModal);
   Modal.show();
 
@@ -61,35 +60,27 @@ const handleEditTabungan = (id) => {
   const kelas = document.getElementById("kelas");
   const tanggal = document.getElementById("tanggal");
   const saldo = document.getElementById("saldo");
+
   idModal.value = tabunganDiedit.id;
   kodeTab.value = tabunganDiedit.kodeTab;
   nis.value = tabunganDiedit.nis;
   nama.value = tabunganDiedit.nama;
   kelas.value = tabunganDiedit.kelas;
   tanggal.value = tabunganDiedit.tanggal;
-  saldo.value = tabunganDiedit.saldo;
+  saldo.value = "";
 };
 
 const editTabungan = () => {
   const EditModal = document.getElementById("editModal");
   const Modal = bootstrap.Modal.getInstance(EditModal);
-  const id = document.getElementById("id");
-  const indexEdit = cariIndex(id.value);
-  const kodeTab = document.getElementById("kodeTab");
-  const nis = document.getElementById("nis");
-  const nama = document.getElementById("nama");
-  const kelas = document.getElementById("kelas");
-  const tanggal = document.getElementById("tanggal");
-  const saldo = document.getElementById("saldo");
-  daftarTabungan[indexEdit].kodeTab = kodeTab.value;
-  daftarTabungan[indexEdit].nis = nis.value;
-  daftarTabungan[indexEdit].nama = nama.value;
-  daftarTabungan[indexEdit].kelas = kelas.value;
-  daftarTabungan[indexEdit].tanggal = tanggal.value;
-  daftarTabungan[indexEdit].saldo = saldo.value;
+  const id = document.getElementById("id").value;
+  const indexEdit = cariIndex(id);
+  const saldoBaru = parseFloat(document.getElementById("saldo").value);
 
-  Modal.hide();
+  daftarTabungan[indexEdit].saldo = parseFloat(daftarTabungan[indexEdit].saldo) + saldoBaru;
   setData("daftarTabungan", daftarTabungan);
+  
+  Modal.hide();
   tampilkanTabungan();
 };
 

@@ -84,7 +84,7 @@
                                 <th>Kelas</th>
                                 <th>Tanggal</th>
                                 <th>Saldo</th>
-                                <th>Edit</th>
+                                <th>+</th>
                                 <th>Hapus</th>
                               </tr>
                             </thead>
@@ -103,78 +103,15 @@
     <div class="modal fade" id="editModal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header"> Edit Tabungan</h1>
+            <div class="modal-header"> Tambah Saldo</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <input type="hidden" id="id">
-                    <div class="mb-3">
-                        <label class="form-label">Kode Tabungan</label>
-                        <input type="number" class="form-control" id="kodeTab" placeholder="masukkan Kode Tabungan Siswa">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">NIS</label>
-                        <input type="number" class="form-control" id="nis" placeholder="masukkan NIS siswa">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="masukkan nama siswa">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Kelas</label>
-                        <select class="form-select" id="kelas">
-                            <option value="">Pilih Kelas</option>
-                            <option value="X TE 1">X TE 1</option>
-                            <option value="X TE 2">X TE 2</option>
-                            <option value="X TE 3">X TE 3</option>
-                            <option value="X TE 4">X TE 4</option>
-                            <option value="X TKL 1">X TKL 1</option>
-                            <option value="X TKL 2">X TKL 2</option>
-                            <option value="X TO 1">X TO 1</option>
-                            <option value="X TO 2">X TO 2</option>
-                            <option value="X TO 3">X TO 4</option>
-                            <option value="X TO 4">X TO 5</option>
-                            <option value="X TO 5">X TO 5</option>
-                            <option value="X TM 1">X TM 1</option>
-                            <option value="X TM 2">X TM 2</option>
-                            <option value="X PPLG 1">X PPLG 1</option>
-                            <option value="X PPLG 2">X PPLG 2</option>
-                            <option value="XI TEI 1">XI TEI 1</option>
-                            <option value="XI TEI 2">XI TEI 2</option>
-                            <option value="XI TAV 1">XI TAV 1</option>
-                            <option value="XI TAV 2">XI TAV 2</option>
-                            <option value="XI TTIL 1">X TTIL 1</option>
-                            <option value="XI TTIL 2">X TTIL 2</option>
-                            <option value="XI TBSM 1">XI TBSM 1</option>
-                            <option value="XI TBSM 2">XI TBSM 2</option>
-                            <option value="XI TKRO 1">XI TKRO 1</option>
-                            <option value="XI TKRO 2">XI TKRO 3</option>
-                            <option value="XI TKRO 3">XI TKRO 2</option>
-                            <option value="XI TP 1">XI TP 1</option>
-                            <option value="XI TP 2">XI TP 2</option>
-                            <option value="XI RPL 1">XI RPL 1</option>
-                            <option value="XI RPL 2">XI RPL 2</option>
-                            <option value="XII TEI 1">XII TEI 1</option>
-                            <option value="XII TEI 2">XII TEI 2</option>
-                            <option value="XII TAV 1">XII TAV 1</option>
-                            <option value="XII TAV 2">XII TAV 2</option>
-                            <option value="XII TTIL 1">XII TTIL 1</option>
-                            <option value="XII TTIL 2">XII TTIL 2</option>
-                            <option value="XII TBSM 1">XII TBSM 1</option>
-                            <option value="XII TBSM 2">XII TBSM 2</option>
-                            <option value="XII TKRO 1">XII TKRO 1</option>
-                            <option value="XII TKRO 2">XII TKRO 3</option>
-                            <option value="XII TKRO 3">XII TKRO 2</option>
-                            <option value="XII TP 1">XII TP 1</option>
-                            <option value="XII TP 2">XII TP 2</option>
-                            <option value="XII RPL 1">XII RPL 1</option>
-                            <option value="XII RPL 2">XII RPL 2</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" placeholder="masukkan tanggal">
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label">Tanggal</label>
+                    <input type="date" class="form-control" id="tanggal" placeholder="masukkan tanggal">
+                </div>
                     <div class="mb-3">
                         <label class="form-label">Saldo</label>
                         <input type="number" class="form-control" id="saldo" placeholder="masukkan saldo siswa">
