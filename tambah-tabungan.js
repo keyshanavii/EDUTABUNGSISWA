@@ -41,3 +41,13 @@ const tambahTabungan = () => {
 
     window.location.href = "data-tabungan.html";
 }
+
+const cancel = () => {
+    document.getElementById('kodeTab').value = "";
+    document.getElementById('nis').value = "";
+    document.getElementById('nama').value = "";
+    document.getElementById('kelas').value = "";
+    document.getElementById('tanggal').value = "";
+    document.getElementById('saldo').value = "";
+
+}

@@ -14,17 +14,13 @@ const tampilkanSiswa = (filter = "") => {
         "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Jenis Kelamin</th> <th>No. Telepon</th> <th>Edit</th> <th>Hapus<th> </tr>";
     for (let i in daftarSiswa){
         if (daftarSiswa[i].nis.includes(filter)){
-            tblSiswa.innerHTML += `<tr> <td>${parseInt(i)+1}</td> <td>${
-                daftarSiswa[i].nis
-            }</td> <td>${daftarSiswa[i].nama}</td> <td>${
-                daftarSiswa[i].kelas
-            }</td> <td>${daftarSiswa[i].jenKel}</td> <td>${
-                daftarSiswa[i].noHp
-            }</td> <td><button type="button" class="btn btn-warning" onclick = "handleEditSiswa('${
-                daftarSiswa[i].id
-            }')">Edit</button></td> <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${
-                daftarSiswa[i].id
-            }')">Delete</button>
+            tblSiswa.innerHTML += `<tr> 
+            <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td>
+            <td>${daftarSiswa[i].nama}</td> 
+            <td>${daftarSiswa[i].kelas}</td> <td>${daftarSiswa[i].jenKel}</td>
+            <td>${daftarSiswa[i].noHp}</td>
+            <td><button type="button" class="btn btn-warning" onclick = "handleEditSiswa('${daftarSiswa[i].id}')">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" onclick = "hapusSiswa('${daftarSiswa[i].id}')">Delete</button>
 </td> </tr>`;
         }
     }
@@ -39,6 +35,7 @@ const hapusSiswa = (id) => {
     const index = cariIndex(id);
     if (index !== -1) {
       daftarSiswa.splice(index, 1);
+      setData("daftarSiswa", daftarSiswa);
       tampilkanSiswa();
       console.log("Dihapus");
     }

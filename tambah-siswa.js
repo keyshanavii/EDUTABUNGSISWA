@@ -16,7 +16,7 @@ const tambahSiswa = () => {
     const jenKel = document.getElementById('jenKel').value
     const noHp = document.getElementById('noHp').value
    
-    const id = daftarSiswa[daftarSiswa.length - 1]?.id + 1 || 1;
+    const id = daftarSiswa.length ? daftarSiswa[daftarSiswa.length - 1].id + 1 : 1;
     const siswaBaru = {
         id,
         nis : nis,
@@ -27,7 +27,6 @@ const tambahSiswa = () => {
     }
 
     daftarSiswa.push(siswaBaru);
-
     setData("daftarSiswa",daftarSiswa);
 
     document.getElementById('nis').value = ""
@@ -38,3 +37,15 @@ const tambahSiswa = () => {
 
     window.location.href = "data-siswa.html";
 }
+
+const cancel = () => {
+    document.getElementById('nis').value = "";
+    document.getElementById('nama').value = "";
+    document.getElementById('kelas').value = "";
+    document.getElementById('jenKel').value = "";
+    document.getElementById('noHp').value = "";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    tampilkanSiswa();
+});

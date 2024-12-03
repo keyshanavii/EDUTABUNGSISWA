@@ -40,6 +40,7 @@ const hapusTabungan = (id) => {
   const index = cariIndex(id);
   if (index !== -1) {
     daftarTabungan.splice(index, 1);
+    setData("daftarTabungan", daftarTabungan);
     tampilkanTabungan();
     console.log("Dihapus");
   }
