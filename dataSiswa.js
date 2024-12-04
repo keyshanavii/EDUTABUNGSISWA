@@ -13,7 +13,11 @@ const tampilkanSiswa = (filter = "") => {
     tblSiswa.innerHTML = 
         "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Kelas</th> <th>Jenis Kelamin</th> <th>No. Telepon</th> <th>Edit</th> <th>Hapus<th> </tr>";
     for (let i in daftarSiswa){
-        if (daftarSiswa[i].nis.includes(filter)){
+        const daftar = daftarSiswa[i];
+        const nis = daftar.nis.toString();
+        const nama = daftar.nama.toLowerCase();
+
+        if (nis.includes(filter) || nama.includes(filter.toLowerCase())) {
             tblSiswa.innerHTML += `<tr> 
             <td>${parseInt(i)+1}</td> <td>${daftarSiswa[i].nis}</td>
             <td>${daftarSiswa[i].nama}</td> 
