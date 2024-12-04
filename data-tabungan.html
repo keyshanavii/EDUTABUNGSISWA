@@ -11,9 +11,9 @@
         margin: 0%;
     }
     
-    .container{
+    .isi{
         background-color: #d8eefe;
-        height: 100%;
+        height: 800px;
         padding-top: 50px;
         padding-bottom: 20px;
     }
@@ -37,7 +37,7 @@
     }
 </style>
 <body>
-    <div class="row">
+    <!-- <div class="row"> -->
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="btn-group ms-3">
@@ -58,7 +58,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="isi">
         <div class="data-tabungan">
         <h1 class="justify-content-top ms-4 mt-4" style="color: #094067;">Data Tabungan</h1>
         </div>
@@ -95,32 +95,6 @@
         </div>  
     </div>
 
-
-    <!-- MODAL -->
-    <div class="modal fade" id="editModal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header"> Tambah Saldo</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" id="id">
-                <div class="mb-3">
-                    <label class="form-label">Tanggal</label>
-                    <input type="date" class="form-control" id="tanggal" placeholder="masukkan tanggal">
-                </div>
-                    <div class="mb-3">
-                        <label class="form-label">Saldo</label>
-                        <input type="number" class="form-control" id="saldo" placeholder="masukkan saldo siswa">
-                    </div>
-                </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="cancel()">Cancel</button>
-              <button type="button" class="btn btn-primary" onclick="editTabungan()">Simpan</button>
-            </div>
-          </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>   
     <script src="./dataTabungan.js"></script>

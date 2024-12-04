@@ -13,7 +13,8 @@ const tampilkanTabungan = (filter = "") => {
   tblTabungan.innerHTML =
     "<tr> <th>No</th> <th>NIS</th> <th>Nama</th> <th>Nominal</th> <th>Tanggal</th> <th>Hapus<th> </tr>";
   for (let i in daftarTabungan) {
-    if (daftarTabungan[i].nis.includes(filter)) {
+    const id = daftarTabungan[i].id;
+    if (id && id.toString().includes(filter)) {
       tblTabungan.innerHTML += `<tr> <td>${parseInt(i) + 1}</td>
        <td>${daftarTabungan[i].nis}</td> <td>${
         daftarTabungan[i].nama
@@ -42,26 +43,26 @@ const hapusTabungan = (id) => {
   }
 };
 
-const handleEditTabungan = (id) => {
-  const EditModal = document.getElementById("editModal");
-  const Modal = new bootstrap.Modal(EditModal);
-  Modal.show();
+// const handleEditTabungan = (id) => {
+//   const EditModal = document.getElementById("editModal");
+//   const Modal = new bootstrap.Modal(EditModal);
+//   Modal.show();
 
-  const indexEdit = cariIndex(id);
-  const tabunganDiedit = daftarTabungan[indexEdit];
-  const idModal = document.getElementById("id");
-  const nis = document.getElementById("nis");
-  const nama = document.getElementById("nama");
-  const nominal = document.getElementById("nominal");
-  const tanggal = document.getElementById("tanggal");
+//   const indexEdit = cariIndex(id);
+//   const tabunganDiedit = daftarTabungan[indexEdit];
+//   const idModal = document.getElementById("id");
+//   const nis = document.getElementById("nis");
+//   const nama = document.getElementById("nama");
+//   const nominal = document.getElementById("nominal");
+//   const tanggal = document.getElementById("tanggal");
 
-  idModal.value = tabunganDiedit.id;
-  kodeTab.value = tabunganDiedit.kodeTab;
-  nis.value = tabunganDiedit.nis;
-  nama.value = tabunganDiedit.nama;
-  nominal.value = tabunganDiedit.nominal;
-  tanggal.value = tabunganDiedit.tanggal;
-};
+//   idModal.value = tabunganDiedit.id;
+//   kodeTab.value = tabunganDiedit.kodeTab;
+//   nis.value = tabunganDiedit.nis;
+//   nama.value = tabunganDiedit.nama;
+//   nominal.value = tabunganDiedit.nominal;
+//   tanggal.value = tabunganDiedit.tanggal;
+// };
 
 // const editTabungan = () => {
 //   const EditModal = document.getElementById("editModal");
@@ -89,6 +90,6 @@ document
     event.preventDefault();
     const searchValue = this.querySelector('input[type="search"]').value;
     tampilkanTabungan(searchValue);
-  });
+});
 
 tampilkanTabungan();

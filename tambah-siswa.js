@@ -29,6 +29,8 @@ const tambahSiswa = () => {
     daftarSiswa.push(siswaBaru);
     setData("daftarSiswa",daftarSiswa);
 
+    const daftarTabungan = getData("daftarTabungan") || [];
+
     document.getElementById('nis').value = ""
     document.getElementById('nama').value = ""
     document.getElementById('kelas').value = ""
@@ -46,6 +48,3 @@ const cancel = () => {
     document.getElementById('noHp').value = "";
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    tampilkanSiswa();
-});
