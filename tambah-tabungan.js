@@ -1,16 +1,5 @@
 const daftarSiswa = getData("daftarSiswa") ?? [];
 
-//  const isiDropdownSiswa = () => {
-//     const dropdownSiswa = document.getElementById('nama');
-//     daftarSiswa.forEach(siswa => {
-//         const option = document.createElement('option');
-//         option.value = siswa.nama;
-//         option.textContent = siswa.nama;
-//         dropdownSiswa.appendChild(option);
-//     })
-// }
-// isiDropdownSiswa();
-
 window.onload = function(){
     const namaSelect = document.getElementById("nama");
     daftarSiswa.forEach(siswa => {
@@ -37,7 +26,7 @@ function setData (Key,Data) {
 const daftarTabungan = getData("daftarTabungan") ?? [];
 
 const tambahTabungan = () => {
-    const nama = document.getElementById('nama').value;
+    const nama = document.getElementById('nama').options[document.getElementById('nama').selectedIndex].text;
     const nis = document.getElementById('nis').value;
     const nominal = document.getElementById('nominal').value;
     const tanggal = document.getElementById('tanggal').value;
@@ -69,4 +58,3 @@ const cancel = () => {
     document.getElementById('tanggal').value = "";
 }
 
-tampilkanTabungan()
